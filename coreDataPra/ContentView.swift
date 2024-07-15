@@ -36,9 +36,8 @@ struct ContentView: View {
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink {
                         FinancialMovement()
-                            .environment(\.managedObjectContext, moc)
                     } label: {
-                        Text("Controle Financei")
+                        Text("Controle Financeiro")
                     }
 
                 }

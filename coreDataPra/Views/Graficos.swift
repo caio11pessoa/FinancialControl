@@ -38,12 +38,25 @@ struct Graficos: View {
         var gast: [Moviment] = []
         for movi in moviments {
             if(movi.valor < 0){
+//                let newMovi = movi
+//                newMovi.valor = -newMovi.valor
                 gast.append(movi)
             }
         }
+        
         return gast
     }
     
+    struct gastosPorGanhos: Identifiable {
+        let kind: String
+        let moviments: [Moviment]
+        var id: String {kind}
+    }
+    
+    var seriesData: [gastosPorGanhos] { [
+        .init(kind: "Entrada", moviments: receitas),
+        .init(kind: "Saída", moviments: gastos)
+    ]}
     
     var body: some View {
         TabView {
@@ -86,9 +99,33 @@ struct Graficos: View {
 //    var datasComparative: []
     
     var comparacaoReceitasEGastos: some View {
-        Chart{
-//            LineMark{
+//        Chart(seriesData){ series in
+////            ForEach(series.moviments) { element in
+////                LineMark(x: .value("Day", element.date!, unit: .day), y: .value("Sales", element.valor))
+////                    .foregroundStyle(by: .value("kind", series.kind))
+////            }
+////            LineMark(x: .value("Day", gastos), y: <#T##PlottableValue<Plottable>#>)
+////            LineMark{
+////                
+////            }
+//        }\
+        VStack {
+//            List(gastos){ movi in
+//                Text("\(movi.valor)")
 //                
+//            }
+            Chart(seriesData) { datas in
+                ForEach(datas.moviments) { movi in
+                    LineMark(x: .value("Day", movi.date ?? .now, unit: .day), y: .value("Gastos", movi.valor))
+                        .foregroundStyle(by: .value("kind", datas.kind))
+                }
+            }
+//            Chart {
+//                ForEach(receitas) { movi in
+//                    LineMark(x: .value("Day", movi.date ?? .now, unit: .day), y: .value("Receitas", movi.valor))
+//                        .foregroundStyle(.yellow)
+//                    
+//                }
 //            }
         }
     }
@@ -105,11 +142,11 @@ struct Graficos: View {
     }
     
     
-    
-    let seriesData: [Series] = [
-        .init(city: "Cupertino", sales: cupertinoData),
-        .init(city: "San Francisco", sales: sfData)
-    ]
+//    
+//    let seriesData: [Series] = [
+//        .init(city: "Cupertino", sales: cupertinoData),
+//        .init(city: "San Francisco", sales: sfData)
+//    ]
 }
 
 struct Pancakes: Identifiable {

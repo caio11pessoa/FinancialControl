@@ -16,6 +16,11 @@
 		3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5232C4028EB0055A88B /* FinancialMovement.swift */; };
 		3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */; };
 		3437E5282C40443A0055A88B /* Graficos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5272C40443A0055A88B /* Graficos.swift */; };
+		3437E52A2C4575940055A88B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5292C4575940055A88B /* DataManager.swift */; };
+		3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */; };
+		3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */; };
+		3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5332C459DE40055A88B /* FloatModifiers.swift */; };
+		3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		3437E5232C4028EB0055A88B /* FinancialMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMovement.swift; sourceTree = "<group>"; };
 		3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMovimentViewModel.swift; sourceTree = "<group>"; };
 		3437E5272C40443A0055A88B /* Graficos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graficos.swift; sourceTree = "<group>"; };
+		3437E5292C4575940055A88B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBootcamp.swift; sourceTree = "<group>"; };
+		3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FruitsContainer.xcdatamodel; sourceTree = "<group>"; };
+		3437E5332C459DE40055A88B /* FloatModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatModifiers.swift; sourceTree = "<group>"; };
+		3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovimentSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				3437E5212C3F18CC0055A88B /* DataController.swift */,
+				3437E5292C4575940055A88B /* DataManager.swift */,
 				3437E50F2C3F17CE0055A88B /* coreDataPra */,
 				3437E50E2C3F17CE0055A88B /* Products */,
 			);
@@ -62,11 +73,13 @@
 		3437E50F2C3F17CE0055A88B /* coreDataPra */ = {
 			isa = PBXGroup;
 			children = (
+				3437E5322C459D730055A88B /* Extensions and Modifiers */,
+				3437E5312C459D0D0055A88B /* ViewModel */,
+				3437E5302C459CFD0055A88B /* Views */,
+				3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */,
 				3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */,
 				3437E5122C3F17CE0055A88B /* ContentView.swift */,
-				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
-				3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */,
-				3437E5272C40443A0055A88B /* Graficos.swift */,
+				3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */,
 				3437E5142C3F17CF0055A88B /* Assets.xcassets */,
 				3437E5162C3F17CF0055A88B /* Preview Content */,
 				3437E51E2C3F17E90055A88B /* Bookworm.xcdatamodeld */,
@@ -80,6 +93,32 @@
 				3437E5172C3F17CF0055A88B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3437E5302C459CFD0055A88B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
+				3437E5272C40443A0055A88B /* Graficos.swift */,
+				3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3437E5312C459D0D0055A88B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3437E5322C459D730055A88B /* Extensions and Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5332C459DE40055A88B /* FloatModifiers.swift */,
+			);
+			path = "Extensions and Modifiers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,10 +193,15 @@
 			files = (
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
 				3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */,
+				3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */,
 				3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */,
 				3437E5222C3F18CC0055A88B /* DataController.swift in Sources */,
 				3437E5202C3F17E90055A88B /* Bookworm.xcdatamodeld in Sources */,
+				3437E52A2C4575940055A88B /* DataManager.swift in Sources */,
 				3437E5112C3F17CE0055A88B /* coreDataPraApp.swift in Sources */,
+				3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */,
+				3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */,
+				3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */,
 				3437E5282C40443A0055A88B /* Graficos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +418,16 @@
 			currentVersion = 3437E51F2C3F17E90055A88B /* Bookworm.xcdatamodel */;
 			name = Bookworm.xcdatamodeld;
 			path = /Users/caiodealmeidapessoa/Caio/coreDataPra/coreDataPra/Bookworm.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */,
+			);
+			currentVersion = 3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */;
+			path = FruitsContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
