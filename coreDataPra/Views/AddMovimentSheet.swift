@@ -11,11 +11,15 @@ import Combine
 struct AddMovimentSheet: View {
     @State var viewModel: FinancialMovimentViewModel
     
+    init(viewModel: FinancialMovimentViewModel) {
+        self.viewModel = viewModel
+        
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 5))
-//                    .foregroundStyle(.clear)
                     .frame(width: 190, height: 40)
                     .overlay {
                         TextField("New Value", text: $viewModel.newValue)

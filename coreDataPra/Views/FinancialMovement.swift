@@ -9,43 +9,21 @@ import SwiftUI
 
 struct FinancialMovement: View {
     
-    @StateObject var viewModel: FinancialMovimentViewModel = FinancialMovimentViewModel()
+    @ObservedObject var viewModel: FinancialMovimentViewModel = FinancialMovimentViewModel()
+    
+    @State var typeOfList: TypeOfList = .allMoviments
     
     var body: some View {
         VStack {
-            List {
-                Section {
-                    ForEach(viewModel.sorted ? viewModel.movimentsSorted : viewModel.moviments){ moviment in
-                        HStack{
-                            Text(moviment.valor.decimalPlaces(2))
-                            Spacer()
-                            Text(
-                                moviment.date?.formatted(
-                                    .dateTime
-                                        .day()
-                                        .month(.twoDigits)
-                                        .hour()
-                                        .minute()
-                                ) ?? Date.now.formatted(
-                                    .dateTime
-                                        .day()
-                                        .month(.twoDigits)
-                                        .hour()
-                                        .minute()
-                                )
-                            )
-                        }
-                    }
-                    .onDelete(perform: viewModel.deleteMoviment)
-                } header: {
-                    
-                    HStack {
-                        Text("Total:")
-                        Text(viewModel.total.twoDecimalPlaces)
-                            .foregroundStyle(viewModel.total < 0 ? .red : .green)
-                    }
-                }
+            switch typeOfList {
+            case .allMoviments:
+                allMoviments
+            case .ganhosPorDia:
+                listPerDayGanho
+            case .gastosPorDia:
+                listPerDayGasto
             }
+            
             HStack {
                 Button("Receita") {
                     viewModel.receita = true
@@ -66,18 +44,25 @@ struct FinancialMovement: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink {
-                        Graficos()
-                    } label: {
-                        Text("Graficos")
-                    }
-                    
-                }
-                ToolbarItem {
                     Menu {
+                        NavigationLink {
+                            Graficos(viewModel: viewModel)
+                        } label: {
+                            Text("Graficos")
+                        }
                         buttonSorted
+                        Button("Ganhos Por Dia") {
+                            typeOfList = .ganhosPorDia
+                        }
+                        Button("Gastos Por Dia") {
+                            typeOfList = .gastosPorDia
+                        }
+                        Button("Todas as movimentações") {
+                            typeOfList = .allMoviments
+                        }
+                        
                     } label: {
-                        Text("Tipos de ordenação")
+                        Text("Menu")
                     }
                     
                     
@@ -93,10 +78,110 @@ struct FinancialMovement: View {
             }
         } label: {
             HStack{
-                Text("Data")
+                Text("Ordenar por Data")
                 if(viewModel.sorted){
                     Image(systemName: "checkmark")
                 }
+            }
+        }
+    }
+    
+    var listPerDayGanho: some View {
+        List {
+            Section {
+                ForEach(viewModel.ganhosPorDia){ moviPerDay in
+                    HStack {
+                        Text(moviPerDay.day.formatted(
+                            .dateTime
+                                .day()
+                                .month(.twoDigits)
+                                .hour()
+                                .minute()
+                        ))
+                        Text("Ganho")
+                        Text(moviPerDay.valor.twoDecimalPlaces)
+                            .foregroundStyle(.green)
+                    }
+                }
+            } header: {
+                HStack {
+                    Text("Total:")
+                    
+                    Text(viewModel.totalGanhos.twoDecimalPlaces)
+                        .foregroundStyle(.green)
+                }
+                .font(.headline)
+            }
+
+            
+            
+        }
+    }
+    var listPerDayGasto: some View {
+        List {
+            Section {
+                ForEach(viewModel.gastosPorDia){ moviPerDay in
+                    HStack {
+                        Text(moviPerDay.day.formatted(
+                            .dateTime
+                                .day()
+                                .month(.twoDigits)
+                                .hour()
+                                .minute()
+                        ))
+                        Text("Ganho")
+                        Text(moviPerDay.valor.twoDecimalPlaces)
+                            .foregroundStyle(.red)
+                    }
+                }
+            } header: {
+                HStack {
+                    Text("Total:")
+                    
+                    Text(viewModel.totalGastos.twoDecimalPlaces)
+                        .foregroundStyle(.red)
+                }
+                .font(.headline)
+            }
+
+            
+            
+        }
+    }
+    var allMoviments: some View {
+        List {
+            Section {
+                ForEach(viewModel.sorted ? viewModel.movimentsSorted : viewModel.moviments){ moviment in
+                    HStack{
+                        Text(moviment.valor.decimalPlaces(2))
+                        Spacer()
+                        Text(
+                            moviment.date?.formatted(
+                                .dateTime
+                                    .day()
+                                    .month(.twoDigits)
+                                    .hour()
+                                    .minute()
+                            ) ?? Date.now.formatted(
+                                .dateTime
+                                    .day()
+                                    .month(.twoDigits)
+                                    .hour()
+                                    .minute()
+                            )
+                        )
+                    }
+                }
+                .onDelete(perform: viewModel.deleteMoviment)
+            } header: {
+                
+                HStack {
+                    Text("Total:")
+                    
+                    Text(viewModel.total.twoDecimalPlaces)
+                        .foregroundStyle(viewModel.total < 0 ? .red : .green)
+                }
+                .font(.headline)
             }
         }
     }
@@ -106,4 +191,10 @@ struct FinancialMovement: View {
     NavigationStack{
         FinancialMovement()
     }
+}
+
+enum TypeOfList {
+    case allMoviments
+    case ganhosPorDia
+    case gastosPorDia
 }

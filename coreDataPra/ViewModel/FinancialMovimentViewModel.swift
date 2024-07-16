@@ -16,6 +16,7 @@ class FinancialMovimentViewModel: ObservableObject {
     @Published var newValue: String = ""
     @Published var receita: Bool = false
     @Published var newDate: Date = .now
+    @Published var isLines: Bool = false
     
     var total: Float {
         var currentValue: Float = 0
@@ -23,6 +24,72 @@ class FinancialMovimentViewModel: ObservableObject {
             currentValue += movi.valor
         }
         return currentValue
+    }
+    var totalGastos: Float {
+        var currentValue: Float = 0
+        for movi in moviments {
+            if movi.valor < 0 {
+                currentValue += movi.valor
+            }
+        }
+        return currentValue
+    }
+    var totalGanhos: Float {
+        var currentValue: Float = 0
+        for movi in moviments {
+            if movi.valor >= 0 {
+                currentValue += movi.valor
+            }
+        }
+        return currentValue
+    }
+    
+    struct MovimentPerDay: Identifiable{
+        var day: Date
+        var moviment: [Moviment]
+        var valor: Float
+        var id: Date {day}
+    }
+    
+    var ganhosPorDia: [MovimentPerDay] {
+        var moviPerDay: [MovimentPerDay] = []
+        var oldDay: Date = .distantPast
+        var index = -1
+        
+        movimentsSorted.forEach { movi in
+            if(movi.valor >= 0){
+                if oldDay != movi.date {
+                    index += 1
+                    moviPerDay.append(.init(day: movi.date!, moviment: [movi], valor: movi.valor))
+                }else {
+                    moviPerDay[index].moviment.append(movi)
+                    moviPerDay[index].valor += movi.valor
+                }
+                oldDay = movi.date!
+            }
+        }
+        
+        return moviPerDay
+    }
+    var gastosPorDia: [MovimentPerDay] {
+        var moviPerDay: [MovimentPerDay] = []
+        var oldDay: Date = .distantPast
+        print(oldDay)
+        var index = -1
+        
+        movimentsSorted.forEach { movi in
+            if(movi.valor < 0){
+                if oldDay != movi.date {
+                    index += 1
+                    moviPerDay.append(.init(day: movi.date!, moviment: [movi], valor: movi.valor))
+                }else {
+                    moviPerDay[index].moviment.append(movi)
+                    moviPerDay[index].valor += movi.valor
+                }
+                oldDay = movi.date!
+            }
+        }
+        return moviPerDay
     }
     
     var movimentsSorted: [Moviment] {
