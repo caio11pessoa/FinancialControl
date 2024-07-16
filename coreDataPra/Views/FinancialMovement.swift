@@ -178,8 +178,8 @@ struct FinancialMovement: View {
                 HStack {
                     Text("Total:")
                     
-                    Text(viewModel.total.twoDecimalPlaces)
-                        .foregroundStyle(viewModel.total < 0 ? .red : .green)
+                    Text(viewModel.financialMoviment.total.twoDecimalPlaces)
+                        .foregroundStyle(viewModel.financialMoviment.total < 0 ? .red : .green)
                 }
                 .font(.headline)
             }

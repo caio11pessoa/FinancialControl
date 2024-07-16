@@ -9,6 +9,17 @@ import SwiftUI
 import CoreData
 
 class FinancialMovimentViewModel: ObservableObject {
+    
+    init() {
+        container = NSPersistentContainer(name: "Bookworm")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("ERROR LOADING CORE DATA. \(error)")
+            }
+        }
+        fetchMoviments()
+    }
+    
     let container: NSPersistentContainer
     @Published var moviments: [Moviment] = []
     @Published var isShowingSheet: Bool = false
@@ -18,13 +29,6 @@ class FinancialMovimentViewModel: ObservableObject {
     @Published var newDate: Date = .now
     @Published var isLines: Bool = false
     
-    var total: Float {
-        var currentValue: Float = 0
-        for movi in moviments {
-            currentValue += movi.valor
-        }
-        return currentValue
-    }
     var totalGastos: Float {
         var currentValue: Float = 0
         for movi in moviments {
@@ -58,7 +62,13 @@ class FinancialMovimentViewModel: ObservableObject {
         
         movimentsSorted.forEach { movi in
             if(movi.valor >= 0){
-                if oldDay != movi.date {
+                if oldDay.formatted(.dateTime
+                    .day()
+                    .month(.twoDigits)
+                    .year()) != movi.date?.formatted(.dateTime
+                    .day()
+                    .month(.twoDigits)
+                    .year()) {
                     index += 1
                     moviPerDay.append(.init(day: movi.date!, moviment: [movi], valor: movi.valor))
                 }else {
@@ -74,12 +84,17 @@ class FinancialMovimentViewModel: ObservableObject {
     var gastosPorDia: [MovimentPerDay] {
         var moviPerDay: [MovimentPerDay] = []
         var oldDay: Date = .distantPast
-        print(oldDay)
         var index = -1
         
         movimentsSorted.forEach { movi in
             if(movi.valor < 0){
-                if oldDay != movi.date {
+                if oldDay.formatted(.dateTime
+                    .day()
+                    .month(.twoDigits)
+                    .year()) != movi.date?.formatted(.dateTime
+                        .day()
+                        .month(.twoDigits)
+                        .year()) {
                     index += 1
                     moviPerDay.append(.init(day: movi.date!, moviment: [movi], valor: movi.valor))
                 }else {
@@ -97,16 +112,6 @@ class FinancialMovimentViewModel: ObservableObject {
             if $0.date! > $1.date! { return true }
             return false
         }
-    }
-    
-    init() {
-        container = NSPersistentContainer(name: "Bookworm")
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                print("ERROR LOADING CORE DATA. \(error)")
-            }
-        }
-        fetchMoviments()
     }
     
     func fetchMoviments() {
@@ -151,8 +156,4 @@ class FinancialMovimentViewModel: ObservableObject {
             print("Error saving. \(error)")
         }
     }
-}
-
-struct CoreDataManager {
-    
 }
