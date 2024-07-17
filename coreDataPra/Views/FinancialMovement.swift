@@ -100,17 +100,23 @@ struct FinancialMovement: View {
         List {
             Section {
                 ForEach(viewModel.ganhosPorDia){ moviPerDay in
-                    HStack {
-                        Text(moviPerDay.day.formatted(
+                    NavigationLink {
+                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
-                                .day()
+                                .day(.twoDigits)
                                 .month(.twoDigits)
-                                .hour()
-                                .minute()
                         ))
-                        Text("Ganho")
-                        Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
-                            .foregroundStyle(.green)
+                    } label: {
+                        HStack {
+                            Text(moviPerDay.day.formatted(
+                                .dateTime
+                                    .day(.twoDigits)
+                                    .month(.twoDigits)
+                            ))
+                            Text("Ganho")
+                            Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
+                                .foregroundStyle(.green)
+                        }
                     }
                 }
             } header: {
@@ -131,17 +137,21 @@ struct FinancialMovement: View {
         List {
             Section {
                 ForEach(viewModel.ganhosPorMes){ moviPerDay in
-                    HStack {
-                        Text(moviPerDay.day.formatted(
+                    NavigationLink {
+                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
-                                .day()
-                                .month(.twoDigits)
-                                .hour()
-                                .minute()
+                                .month(.wide)
                         ))
-                        Text("Ganho")
-                        Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
-                            .foregroundStyle(.green)
+                    } label: {
+                        HStack {
+                            Text(moviPerDay.day.formatted(
+                                .dateTime
+                                    .month(.wide)
+                            ))
+                            Text("Ganho")
+                            Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
+                                .foregroundStyle(.green)
+                        }
                     }
                 }
             } header: {
@@ -162,17 +172,23 @@ struct FinancialMovement: View {
         List {
             Section {
                 ForEach(viewModel.gastosPorDia){ moviPerDay in
-                    HStack {
-                        Text(moviPerDay.day.formatted(
+                    NavigationLink {
+                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
-                                .day()
+                                .day(.twoDigits)
                                 .month(.twoDigits)
-                                .hour()
-                                .minute()
                         ))
-                        Text("Ganho")
-                        Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
-                            .foregroundStyle(.red)
+                    } label: {
+                        HStack {
+                            Text(moviPerDay.day.formatted(
+                                .dateTime
+                                    .day(.twoDigits)
+                                    .month(.twoDigits)
+                            ))
+                            Text("Ganho")
+                            Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
             } header: {
@@ -193,17 +209,13 @@ struct FinancialMovement: View {
         List {
             Section {
                 ForEach(viewModel.gastosPorMes){ moviPerDay in
-                    HStack {
-                        Text(moviPerDay.day.formatted(
+                    NavigationLink {
+                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
-                                .day()
-                                .month(.twoDigits)
-                                .hour()
-                                .minute()
+                                .month(.wide)
                         ))
-                        Text("Ganho")
-                        Text("R$ " + moviPerDay.valor.twoDecimalPlaces)
-                            .foregroundStyle(.red)
+                    } label: {
+                        ListColabCell(moviPerDay: moviPerDay)
                     }
                 }
             } header: {
@@ -229,7 +241,7 @@ struct FinancialMovement: View {
                     } label: {
                         ListCell(moviment: moviment)
                     }
-
+                    
                 }
                 .onDelete(perform: viewModel.deleteMoviment)
             } header: {
