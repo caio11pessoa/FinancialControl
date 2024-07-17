@@ -10,15 +10,18 @@ import Combine
 
 struct AddMovimentSheet: View {
     @State var viewModel: FinancialMovimentViewModel
+    @State var tagSelected: TagEnum = .none
     
     init(viewModel: FinancialMovimentViewModel) {
         self.viewModel = viewModel
-        
     }
     
     var body: some View {
         NavigationStack {
             VStack {
+                HStack {
+//                    .frame(width: 110)
+                }
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 5))
                     .frame(width: 190, height: 40)
                     .overlay {
@@ -33,12 +36,22 @@ struct AddMovimentSheet: View {
                             }
                             .padding(.horizontal, 4)
                     }
+                HStack{
+                    Text("Tipo:")
+                    Spacer()
+                    Picker("Qual tipo de movimentação", selection: $tagSelected) {
+                        ForEach(TagEnum.allCases, id: \.self){ tag in
+                            Text(tag.rawValue)
+                        }
+                    }
+                    Spacer()
+                }
                 DatePicker("Data", selection: $viewModel.newDate)
                 
                 Button("Confirmar \(viewModel.receita ? "Receita" : "Gasto")") {
                     let incomeValue: Float = Float(viewModel.newValue) ?? 0
                     if(incomeValue != 0){
-                        viewModel.addMoviment(value: incomeValue, date: viewModel.newDate, receita: viewModel.receita)
+                        viewModel.addMoviment(value: incomeValue, date: viewModel.newDate, receita: viewModel.receita, tag: tagSelected)
                         viewModel.newValue = ""
                         viewModel.isShowingSheet.toggle()
                     }

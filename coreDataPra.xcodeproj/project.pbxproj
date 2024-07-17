@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		343163502C46118700212F48 /* Bookworm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3431634E2C46118700212F48 /* Bookworm.xcdatamodeld */; };
+		343163702C472D7C00212F48 /* TagEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431636F2C472D7C00212F48 /* TagEnum.swift */; };
+		343163732C47353A00212F48 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163722C47353A00212F48 /* ListCell.swift */; };
+		343163752C47372600212F48 /* MovimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163742C47372600212F48 /* MovimentView.swift */; };
 		3437E5112C3F17CE0055A88B /* coreDataPraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */; };
 		3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5122C3F17CE0055A88B /* ContentView.swift */; };
 		3437E5152C3F17CF0055A88B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3437E5142C3F17CF0055A88B /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 
 /* Begin PBXFileReference section */
 		3431634F2C46118700212F48 /* Bookworm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookworm.xcdatamodel; sourceTree = "<group>"; };
+		3431636F2C472D7C00212F48 /* TagEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEnum.swift; sourceTree = "<group>"; };
+		343163722C47353A00212F48 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		343163742C47372600212F48 /* MovimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentView.swift; sourceTree = "<group>"; };
 		3437E50D2C3F17CE0055A88B /* coreDataPra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coreDataPra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataPraApp.swift; sourceTree = "<group>"; };
 		3437E5122C3F17CE0055A88B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343163712C47351800212F48 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				343163722C47353A00212F48 /* ListCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3437E5042C3F17CE0055A88B = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +115,11 @@
 		3437E5302C459CFD0055A88B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				343163712C47351800212F48 /* Components */,
 				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
 				3437E5272C40443A0055A88B /* Graficos.swift */,
 				3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */,
+				343163742C47372600212F48 /* MovimentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				3437E53A2C46F7560055A88B /* FinancialMovimentModel.swift */,
+				3431636F2C472D7C00212F48 /* TagEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,8 +222,11 @@
 				343163502C46118700212F48 /* Bookworm.xcdatamodeld in Sources */,
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
 				3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */,
+				343163732C47353A00212F48 /* ListCell.swift in Sources */,
+				343163702C472D7C00212F48 /* TagEnum.swift in Sources */,
 				3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */,
 				3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */,
+				343163752C47372600212F48 /* MovimentView.swift in Sources */,
 				3437E5222C3F18CC0055A88B /* DataController.swift in Sources */,
 				3437E53B2C46F7560055A88B /* FinancialMovimentModel.swift in Sources */,
 				3437E52A2C4575940055A88B /* DataManager.swift in Sources */,
