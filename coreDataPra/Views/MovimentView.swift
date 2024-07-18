@@ -48,8 +48,7 @@ struct MovimentView: View {
                         Button(action: {
                             
                         }, label: {
-                            Image(systemName: "pencil")
-                                .foregroundStyle(.blue)
+                            Text("Editar")
                                 .font(.title3)
                                 .bold()
                         })

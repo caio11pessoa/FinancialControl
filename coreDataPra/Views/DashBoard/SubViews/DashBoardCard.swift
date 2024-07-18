@@ -9,14 +9,15 @@ import SwiftUI
 
 struct DashBoardCard: View {
     var text: String
+    var image: String
     var body: some View {
         VStack {
             ZStack{
-                Color.blue.opacity(0.15)
+                Color.blue.opacity(0.1)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
                 HStack{
                     
-                    Image(systemName: "globe")
+                    Image(systemName: image)
                         .font(.title)
                 }
             }
@@ -28,5 +29,5 @@ struct DashBoardCard: View {
 }
 
 #Preview {
-    DashBoardCard(text: "Texto")
+    DashBoardCard(text: "Texto", image: "globe")
 }

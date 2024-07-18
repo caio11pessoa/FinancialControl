@@ -14,50 +14,66 @@ struct Dashboard: View {
             VStack(alignment: .leading) {
                 Text("Saldo atual")
                     .font(.title3)
-                    .padding(.bottom)
-                Text("R$ 1.000,00")
+                    .padding(.bottom, 8)
+                Text("R$ \(viewModel.total.twoDecimalPlaces)")
                     .font(.title)
                     .bold()
                 Divider()
                     .background(.black)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Receita:")
+                        Text("R$ \(viewModel.totalGanhos.twoDecimalPlaces)")
+                            .foregroundStyle(.green)
+                    }
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Custos:")
+                        Text("R$ \(viewModel.totalGastos.twoDecimalPlaces)")
+                            .foregroundStyle(.red)
+                    }
+                }
+                .padding(.vertical, 8)
             }
-            .padding(.horizontal)
-            ScrollView(.horizontal) {
+            .padding(.horizontal, 24)
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [
                     GridItem(.flexible()),
                 ], spacing: 20) {
                     NavigationLink {
                         Graficos(viewModel: FinancialMovimentViewModel())
                     } label: {
-                        DashBoardCard(text: "Gráfico")
+                        DashBoardCard(text: "Gráfico", image: "chart.bar.fill")
                     }
                     NavigationLink {
                         FinancialMovement(viewModel: viewModel)
                     } label: {
-                        DashBoardCard(text: "estrato")
+                        DashBoardCard(text: "Estrato", image: "dollarsign.circle")
                     }
                     NavigationLink {
                         
                     } label: {
-                        DashBoardCard(text: "Perfil")
+                        DashBoardCard(text: "Perfil",
+                                      image: "person.crop.circle")
                     }
                     NavigationLink {
                         
                     } label: {
-                        DashBoardCard(text: "algo")
+                        DashBoardCard(text: "Algo",
+                                      image: "list.clipboard")
                     }
                     NavigationLink {
                         
                     } label: {
-                        DashBoardCard(text: "Gráfico")
+                        DashBoardCard(text: "Gráfico", image: "globe")
                     }
                     NavigationLink {
                         
                     } label: {
-                        DashBoardCard(text: "Gráfico")
+                        DashBoardCard(text: "Gráfico", image: "swift")
                     }
                 }
-                .padding(8)
+                .padding(24)
             }
             .frame(height: 120)
             Text("Gráfico de montante por dia no mês")
