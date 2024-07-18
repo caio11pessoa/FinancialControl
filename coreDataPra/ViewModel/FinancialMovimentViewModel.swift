@@ -6,21 +6,15 @@
 //
 
 import SwiftUI
-import CoreData
 
 class FinancialMovimentViewModel: ObservableObject {
     
-    init() {
-        container = NSPersistentContainer(name: "Bookworm")
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                print("ERROR LOADING CORE DATA. \(error)")
-            }
-        }
-        fetchMoviments()
-    }
+    var databaseManager: DataBaseManager
     
-    let container: NSPersistentContainer
+    init() {
+        databaseManager = .init()
+        moviments = databaseManager.fetchMoviments()
+    }
     @Published var moviments: [Moviment] = []
     @Published var isShowingSheet: Bool = false
     @Published var sorted: Bool = false
@@ -28,6 +22,7 @@ class FinancialMovimentViewModel: ObservableObject {
     @Published var receita: Bool = false
     @Published var newDate: Date = .now
     @Published var isLines: Bool = false
+    @Published var newDescription: String = ""
     
     var total: Float {
         var currentValue: Float = 0
@@ -171,23 +166,9 @@ class FinancialMovimentViewModel: ObservableObject {
         }
     }
     
-    func fetchMoviments() {
-        let request = NSFetchRequest<Moviment>(entityName: "Moviment")
-
-        do {
-            moviments = try container.viewContext.fetch(request)
-        } catch let error {
-            print("Error fetching. \(error)")
-        }
-    }
-    
-    func addMoviment(value: Float, date: Date, receita: Bool, tag: TagEnum) {
+    func addMoviment(value: Float, date: Date, receita: Bool, tag: TagEnum, desc: String) {
         if value != 0 {
-            let newMoviment = Moviment(context: container.viewContext)
-            newMoviment.valor = receita ? value : -value
-            newMoviment.date = date
-            newMoviment.id = UUID()
-            newMoviment.tag = tag.rawValue
+            databaseManager.addMoviment(value: value, date: date, receita: receita, tag: tag, desc: desc)
             saveData()
         }
     }
@@ -202,16 +183,12 @@ class FinancialMovimentViewModel: ObservableObject {
     func deleteMoviment(indexSet: IndexSet){
         guard let index = indexSet.first else {return}
         let entity = sorted ? movimentsSorted[index] : moviments[index]
-        container.viewContext.delete(entity)
+        databaseManager.deleteMoviment(entity)
         saveData()
     }
     
     func saveData() {
-        do {
-            try container.viewContext.save()
-            fetchMoviments()
-        } catch let error {
-            print("Error saving. \(error)")
-        }
+        databaseManager.saveData()
+        moviments = databaseManager.fetchMoviments()
     }
 }

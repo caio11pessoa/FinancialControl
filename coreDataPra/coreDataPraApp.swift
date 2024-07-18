@@ -13,7 +13,7 @@ struct coreDataPraApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                FinancialMovement()
+                Dashboard()
             }
         }
     }

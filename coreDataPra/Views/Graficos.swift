@@ -62,25 +62,13 @@ struct Graficos: View {
     var columns: some View {
         TabView {
             Chart(viewModel.ganhosPorDia){ element in
-                BarMark(x: .value("date", element.day.formatted(
-                    .dateTime
-                        .day()
-                        .month(.twoDigits)
-                        .hour()
-                        .minute()
-                )), y: .value("Ganhos", element.valor))
+                BarMark(x: .value("date", element.day.FormattedfullDate), y: .value("Ganhos", element.valor))
             }.tabItem {
                 Text("Ganhos")
             }
             
             Chart(viewModel.gastosPorDia){ element in
-                BarMark(x: .value("date", element.day.formatted(
-                    .dateTime
-                        .day()
-                        .month(.twoDigits)
-                        .hour()
-                        .minute()
-                )), y: .value("Gastos", -element.valor))
+                BarMark(x: .value("date", element.day.FormattedfullDate), y: .value("Gastos", -element.valor))
                 .foregroundStyle(.red)
             }.tabItem {
                 Text("Gastos")

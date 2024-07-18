@@ -27,7 +27,7 @@ struct MovimentColabView: View {
                                 .foregroundStyle(movi.valor < 0 ? .red : .green)
                         }
                         Spacer()
-                        Text("Descrição")
+                        Text(movi.descricao ?? "Nenhuma descrição")
                         Spacer()
                     }
                     .frame(height: 200)

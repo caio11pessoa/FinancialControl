@@ -26,7 +26,10 @@
 		3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */; };
 		3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5332C459DE40055A88B /* FloatModifiers.swift */; };
 		3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */; };
-		3437E53B2C46F7560055A88B /* FinancialMovimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53A2C46F7560055A88B /* FinancialMovimentModel.swift */; };
+		3437E53D2C4960E50055A88B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53C2C4960E50055A88B /* DatabaseManager.swift */; };
+		3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53E2C49613E0055A88B /* DateExtension.swift */; };
+		3437E5422C49799A0055A88B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5412C49799A0055A88B /* Dashboard.swift */; };
+		3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5442C497A380055A88B /* DashBoardCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +53,10 @@
 		3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FruitsContainer.xcdatamodel; sourceTree = "<group>"; };
 		3437E5332C459DE40055A88B /* FloatModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatModifiers.swift; sourceTree = "<group>"; };
 		3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovimentSheet.swift; sourceTree = "<group>"; };
-		3437E53A2C46F7560055A88B /* FinancialMovimentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMovimentModel.swift; sourceTree = "<group>"; };
+		3437E53C2C4960E50055A88B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3437E53E2C49613E0055A88B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		3437E5412C49799A0055A88B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		3437E5442C497A380055A88B /* DashBoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +100,11 @@
 		3437E50F2C3F17CE0055A88B /* coreDataPra */ = {
 			isa = PBXGroup;
 			children = (
-				3437E5392C46F7310055A88B /* Model */,
+				3437E53C2C4960E50055A88B /* DatabaseManager.swift */,
 				3437E5322C459D730055A88B /* Extensions and Modifiers */,
-				3437E5312C459D0D0055A88B /* ViewModel */,
+				3437E5392C46F7310055A88B /* Model */,
 				3437E5302C459CFD0055A88B /* Views */,
+				3437E5312C459D0D0055A88B /* ViewModel */,
 				3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */,
 				3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */,
 				3437E5122C3F17CE0055A88B /* ContentView.swift */,
@@ -120,6 +127,7 @@
 		3437E5302C459CFD0055A88B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3437E5402C49798E0055A88B /* DashBoard */,
 				343163712C47351800212F48 /* Components */,
 				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
 				3437E5272C40443A0055A88B /* Graficos.swift */,
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3437E5332C459DE40055A88B /* FloatModifiers.swift */,
+				3437E53E2C49613E0055A88B /* DateExtension.swift */,
 			);
 			path = "Extensions and Modifiers";
 			sourceTree = "<group>";
@@ -149,10 +158,26 @@
 		3437E5392C46F7310055A88B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3437E53A2C46F7560055A88B /* FinancialMovimentModel.swift */,
 				3431636F2C472D7C00212F48 /* TagEnum.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3437E5402C49798E0055A88B /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5432C497A210055A88B /* SubViews */,
+				3437E5412C49799A0055A88B /* Dashboard.swift */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		3437E5432C497A210055A88B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5442C497A380055A88B /* DashBoardCard.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,22 +251,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				343163502C46118700212F48 /* Bookworm.xcdatamodeld in Sources */,
+				3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */,
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
 				3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */,
 				343163732C47353A00212F48 /* ListCell.swift in Sources */,
 				343163702C472D7C00212F48 /* TagEnum.swift in Sources */,
+				3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */,
 				3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */,
 				3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */,
 				343163752C47372600212F48 /* MovimentView.swift in Sources */,
 				3437E5222C3F18CC0055A88B /* DataController.swift in Sources */,
-				3437E53B2C46F7560055A88B /* FinancialMovimentModel.swift in Sources */,
 				3437E52A2C4575940055A88B /* DataManager.swift in Sources */,
 				343163792C487E9900212F48 /* MovimentColabView.swift in Sources */,
 				343163772C48796600212F48 /* ListColabCell.swift in Sources */,
 				3437E5112C3F17CE0055A88B /* coreDataPraApp.swift in Sources */,
+				3437E53D2C4960E50055A88B /* DatabaseManager.swift in Sources */,
 				3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */,
 				3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */,
 				3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */,
+				3437E5422C49799A0055A88B /* Dashboard.swift in Sources */,
 				3437E5282C40443A0055A88B /* Graficos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

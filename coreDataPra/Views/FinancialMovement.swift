@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FinancialMovement: View {
     
-    @ObservedObject var viewModel: FinancialMovimentViewModel = FinancialMovimentViewModel()
+    @ObservedObject var viewModel: FinancialMovimentViewModel
     
     @State var typeOfList: TypeOfList = .allMoviments
     
@@ -42,18 +42,13 @@ struct FinancialMovement: View {
                 .tint(.red)
                 .padding()
             }
-            .padding()
+//            .padding()
             .sheet(isPresented: $viewModel.isShowingSheet){
                 AddMovimentSheet(viewModel: viewModel)
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
-                        NavigationLink {
-                            Graficos(viewModel: viewModel)
-                        } label: {
-                            Text("Graficos")
-                        }
                         buttonSorted
                         Button("Ganhos Por Dia") {
                             typeOfList = .ganhosPorDia
@@ -78,7 +73,9 @@ struct FinancialMovement: View {
                     
                 }
             }
+            Spacer()
         }
+        .navigationTitle("Movimentações")
     }
     
     var buttonSorted: some View {
@@ -128,9 +125,6 @@ struct FinancialMovement: View {
                 }
                 .font(.headline)
             }
-            
-            
-            
         }
     }
     var listPerMonthGanho: some View {
@@ -260,7 +254,7 @@ struct FinancialMovement: View {
 
 #Preview {
     NavigationStack{
-        FinancialMovement()
+        FinancialMovement(viewModel: FinancialMovimentViewModel())
     }
 }
 

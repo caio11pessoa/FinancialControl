@@ -36,7 +36,7 @@ struct MovimentView: View {
                     HStack {
                         Text("Descrição:")
                         Spacer()
-                        Text("Nenhuma descrição")
+                        Text(moviment.descricao ?? "Nenhuma descrição")
                             .foregroundStyle(.gray)
                     }
                 } header: {
