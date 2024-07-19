@@ -17,6 +17,14 @@ extension Date {
                 .minute()
         )
     }
+    var FormattedDayDate: String {
+        self.formatted(
+            .dateTime
+                .day(.twoDigits)
+                .month(.twoDigits)
+                .year(.twoDigits)
+        )
+    }
 }
 
 

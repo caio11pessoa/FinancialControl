@@ -41,7 +41,7 @@ struct Dashboard: View {
                     GridItem(.flexible()),
                 ], spacing: 20) {
                     NavigationLink {
-                        
+                        Diario()
                     } label: {
                         DashBoardCard(text: "Diário",
                                       image: "list.clipboard")

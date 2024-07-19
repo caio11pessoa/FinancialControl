@@ -31,6 +31,8 @@
 		3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53E2C49613E0055A88B /* DateExtension.swift */; };
 		3437E5422C49799A0055A88B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5412C49799A0055A88B /* Dashboard.swift */; };
 		3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5442C497A380055A88B /* DashBoardCard.swift */; };
+		3437E5482C4ACB750055A88B /* DiarioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5472C4ACB750055A88B /* DiarioCell.swift */; };
+		3437E54B2C4ACE220055A88B /* DiarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		3437E53E2C49613E0055A88B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3437E5412C49799A0055A88B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		3437E5442C497A380055A88B /* DashBoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCard.swift; sourceTree = "<group>"; };
+		3437E5472C4ACB750055A88B /* DiarioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioCell.swift; sourceTree = "<group>"; };
+		3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 		3431637A2C49D44E00212F48 /* Diario */ = {
 			isa = PBXGroup;
 			children = (
+				3437E5492C4ACE140055A88B /* ViewModel */,
+				3437E5462C4ACB5E0055A88B /* SubViews */,
 				3431637B2C49D46100212F48 /* Diario.swift */,
 			);
 			path = Diario;
@@ -191,6 +197,22 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		3437E5462C4ACB5E0055A88B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5472C4ACB750055A88B /* DiarioCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		3437E5492C4ACE140055A88B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +287,7 @@
 				3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */,
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
 				3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */,
+				3437E54B2C4ACE220055A88B /* DiarioViewModel.swift in Sources */,
 				343163732C47353A00212F48 /* ListCell.swift in Sources */,
 				343163702C472D7C00212F48 /* TagEnum.swift in Sources */,
 				3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */,
@@ -281,6 +304,7 @@
 				3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */,
 				3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */,
 				3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */,
+				3437E5482C4ACB750055A88B /* DiarioCell.swift in Sources */,
 				3437E5422C49799A0055A88B /* Dashboard.swift in Sources */,
 				3437E5282C40443A0055A88B /* Graficos.swift in Sources */,
 			);

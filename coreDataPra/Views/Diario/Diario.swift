@@ -8,73 +8,101 @@
 import SwiftUI
 
 struct Diario: View {
+    @StateObject var viewModel: DiarioViewModel = DiarioViewModel()
     var body: some View {
-        List {
-            Section {
-                HStack{
-                    Text("Total do mês")
-                    Spacer()
-                    Text("R$ 10.000")
+        VStack(spacing: 0) {
+            List {
+                Section {
+                    HStack{
+                        Text("Total do mês")
+                        Spacer()
+                        Text("R$ \(viewModel.totalGastoMes.twoDecimalPlaces)")
+                    }
+                    HStack{
+                        Text("Gasto diário previsto")
+                        Spacer()
+                        Text("R$ \(viewModel.gastoPrevisto.twoDecimalPlaces)")
+                    }
+                } header: {
+                    HStack{
+                        Text(returnMonth(monthString: viewModel.selectedMonth))
+                        Spacer()
+                        Picker("Mês", selection: $viewModel.selectedMonth){
+                            ForEach(generateMonths(), id: \.self){ month in
+                                Text(month)
+                            }
+                        }
+                    }
                 }
-                HStack{
-                    Text("Gasto diário previsto")
-                    Spacer()
-                    Text("R$ 750")
-                }
-            }
-            Section {
-                HStack{
-                    Text("01/11/22")
-                    Spacer()
-                    Text("R$ 1.000,00")
-                    Image(systemName: "arrow.up")
-                }
-                HStack {
-                    Text("02/11/22")
-                    Spacer()
-                    Text("R$ 500,00")
-                    Image(systemName: "arrow.down")
-                }
-                HStack {
-                    Text("03/11/22")
-                    Spacer()
-                    Text("R$ 1.000,00")
-                    Image(systemName: "arrow.up")
-                }
-                HStack {
-                    Text("03/11/22")
-                    Spacer()
-                    Text("R$ 1.000,00")
-                    Image(systemName: "arrow.up")
-                }
-            } header: {
-                Text("Janeiro")
-            }
-//            Section {
-//            HStack {
-//                    Spacer()
-//                    Button("Novo Gasto") {
-//                        print("kasksak")
-//                    }
-            Button {
-                
-            } label: {
-                HStack{
-                    Spacer()
-                    Text("Novo Gasto") 
-                    Spacer()
+                Button {
+                    
+                } label: {
+                    HStack{
+                        Spacer()
+                        Text("Nova Movimentação")
+                        Spacer()
+                    }
                 }
             }
-
-//                    Spacer()
-//                }
-//            }
-
-            
+            .scrollDisabled(true)
+            .frame(maxHeight: 240)
+            List{
+                Section {
+                    if(viewModel.monthMoviments.isEmpty){
+                        Text("Sem gastos")
+                    }
+                    ForEach(viewModel.dailyMoviments){ movi in
+                        DiarioCell(date: movi.day, valor: (movi.valor == 0 ? movi.valor : -movi.valor).twoDecimalPlaces, color: viewModel.returnColor(val: movi.valor))
+                    }
+                }header: {
+                    Text("Gastos")
+                }
+            }
         }
+        .navigationTitle("Diário")
     }
 }
 
 #Preview {
-    Diario()
+    NavigationStack {
+        Diario(viewModel: .init())
+    }
 }
+
+
+struct MonthItem: Identifiable {
+    
+    let id: Int
+    let name: String
+    
+    init(month: Int, calendar: Calendar = Calendar.current) {
+        self.id = month
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        if let date = calendar.date(bySetting: .month, value: month, of: Date()) {
+            self.name = dateFormatter.string(from: date)
+        } else {
+            self.name = ""
+        }
+    }
+}
+
+private func returnMonth(monthString: String) -> String{
+    let month = Calendar.current.date(bySetting: .month, value: Int(monthString)!, of: Date())
+    return (month?.formatted(.dateTime
+        .month(.wide)))!
+}
+
+
+
+private func generateMonths() -> [String] {
+    
+    return (1...12).map {
+        if( $0 < 10){
+            return "0\($0)"
+        }
+        return "\($0)"
+    }
+}
+
+
