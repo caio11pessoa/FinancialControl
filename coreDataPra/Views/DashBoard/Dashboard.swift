@@ -41,6 +41,12 @@ struct Dashboard: View {
                     GridItem(.flexible()),
                 ], spacing: 20) {
                     NavigationLink {
+                        
+                    } label: {
+                        DashBoardCard(text: "Diário",
+                                      image: "list.clipboard")
+                    }
+                    NavigationLink {
                         Graficos(viewModel: FinancialMovimentViewModel())
                     } label: {
                         DashBoardCard(text: "Gráfico", image: "chart.bar.fill")
@@ -53,19 +59,13 @@ struct Dashboard: View {
                     NavigationLink {
                         
                     } label: {
+                        DashBoardCard(text: "Críticos", image: "hazardsign.fill")
+                    }
+                    NavigationLink {
+                        
+                    } label: {
                         DashBoardCard(text: "Perfil",
                                       image: "person.crop.circle")
-                    }
-                    NavigationLink {
-                        
-                    } label: {
-                        DashBoardCard(text: "Algo",
-                                      image: "list.clipboard")
-                    }
-                    NavigationLink {
-                        
-                    } label: {
-                        DashBoardCard(text: "Gráfico", image: "globe")
                     }
                     NavigationLink {
                         
