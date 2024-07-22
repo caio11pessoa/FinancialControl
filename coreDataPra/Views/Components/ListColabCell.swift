@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ListColabCell: View {
-    var moviPerDay: FinancialMovimentViewModel.MovimentPerDay
+    var moviPerDay: MovimentPerDay
     
     var body: some View {
         HStack{        

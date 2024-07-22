@@ -27,22 +27,15 @@ struct FinancialMovement: View {
             case .gastosPorMes:
                 listPerMonthGasto
             }
-            
-            HStack {
-                Button("Receita") {
-                    viewModel.receita = true
-                    viewModel.isShowingSheet.toggle()
+            Button {
+                viewModel.isShowingSheet = true
+            } label: {
+                HStack{
+                    Spacer()
+                    Text("Nova Movimentação")
+                    Spacer()
                 }
-                .padding()
-                
-                Button("Gasto"){
-                    viewModel.receita = false
-                    viewModel.isShowingSheet.toggle()
-                }
-                .tint(.red)
-                .padding()
             }
-//            .padding()
             .sheet(isPresented: $viewModel.isShowingSheet){
                 AddMovimentSheet(viewModel: viewModel)
             }

@@ -11,6 +11,12 @@ import Combine
 struct AddMovimentSheet: View {
     @StateObject var viewModel: FinancialMovimentViewModel
     @State var tagSelected: TagEnum = .none
+    @State private var selected: String = "Gasto"
+    private let selectionOptions = [
+        "Gasto",
+        "Receita",
+    ]
+    var receita: Bool {selected == "Receita"}
     
     var body: some View {
         ZStack {
@@ -20,6 +26,14 @@ struct AddMovimentSheet: View {
                     .font(.title3)
                     .padding()
                 Form {
+                    Picker("Picker Name",
+                           selection: $selected) {
+                        ForEach(selectionOptions,
+                                id: \.self) {
+                            Text($0)
+                        }
+                    }
+                           .pickerStyle(.segmented)
                     HStack {
                         Text("Valor: ")
                         TextField("R$", text: $viewModel.newValue)
@@ -45,7 +59,7 @@ struct AddMovimentSheet: View {
                         
                         let incomeValue: Float = Float(viewModel.newValue) ?? 0
                         if(incomeValue != 0){
-                            viewModel.addMoviment(value: incomeValue, date: viewModel.newDate, receita: viewModel.receita, tag: tagSelected, desc: viewModel.newDescription)
+                            viewModel.addMoviment(value: incomeValue, date: viewModel.newDate, receita: receita, tag: tagSelected, desc: viewModel.newDescription)
                             viewModel.newValue = ""
                             viewModel.isShowingSheet.toggle()
                         }

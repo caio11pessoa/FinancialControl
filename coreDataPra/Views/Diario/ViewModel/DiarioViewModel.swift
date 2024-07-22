@@ -11,7 +11,12 @@ class DiarioViewModel: ObservableObject {
     var databaseManager: DataBaseManager
     @Published var selectedMonth: String
     var gastoPrevisto: Float {
-        totalGastoMes/Float(generateDays().count)
+        let dateNow: Date = .now
+        let daysUntilMonthEntil: Int =
+        generateDays().filter { day in
+            Int(day)! >= Int(dateNow.formatted(.dateTime.day(.twoDigits)))!
+        }.count
+        return totalGastoMes/Float(daysUntilMonthEntil)
     }
     var totalGastoMes: Float {
         var total: Float = 0
@@ -33,18 +38,19 @@ class DiarioViewModel: ObservableObject {
             return range.map { String($0) }
         }
     }
-
+    
     @Published var moviments: [Moviment] = []
     
     func returnColor(val: Float) -> Color {
+        print("Val: \(val) Gasto Previsto: \(gastoPrevisto)")
         if(val > 2*gastoPrevisto){
             return .red
         }else if(val > gastoPrevisto) {
             return .yellow
         }else if(val > gastoPrevisto/2){
-            return .green
-        } else {
             return .blue
+        } else {
+            return .green
         }
     }
     
@@ -62,23 +68,24 @@ class DiarioViewModel: ObservableObject {
         generateDays().forEach { day in
             var moviDay: MovimentPerDay = .init(day: .now, moviment: [], valor: 0)
             let daysFiltered = monthMoviments.filter { movi in
-                movi.date?.formatted(.dateTime.day(.twoDigits)) == day
+                if movi.date?.formatted(.dateTime.day()) == day{
+                    return true
+                }else { return false}
             }
             moviDay.moviment = daysFiltered
-            moviDay.day = Calendar.current.date(bySetting: .day, value: Int(day)!, of: Date())!
+            var dateComponents = DateComponents()
+            dateComponents.day = Int(day)!
+            dateComponents.month = Int(selectedMonth)!
+            dateComponents.year = 2024
+            let calendar = Calendar.current
+            moviDay.day = calendar.date(from: dateComponents)!
+            print(moviDay.day)
             daysFiltered.forEach { movi in
                 moviDay.valor += movi.valor
             }
             daily.append(moviDay)
         }
         return daily
-    }
-    
-    struct MovimentPerDay: Identifiable{
-        var day: Date
-        var moviment: [Moviment]
-        var valor: Float
-        var id: Date {day}
     }
     
     var MoviPorDia: [MovimentPerDay] {
@@ -116,4 +123,30 @@ class DiarioViewModel: ObservableObject {
         let range = Calendar.current.range(of: .day, in: .month, for: date)!
         return range.map { String($0) }
     }
+    
+    func addMoviment(value: Float, date: Date, receita: Bool, tag: TagEnum, desc: String) {
+        if value != 0 {
+            databaseManager.addMoviment(value: value, date: date, receita: receita, tag: tag, desc: desc)
+            saveData()
+        }
+    }
+
+    func deleteMoviment(indexSet: IndexSet){
+        guard let index = indexSet.first else {return}
+        let entity = moviments[index]
+        databaseManager.deleteMoviment(entity)
+        saveData()
+    }
+    
+    func saveData() {
+        databaseManager.saveData()
+        moviments = databaseManager.fetchMoviments()
+    }
+}
+
+struct MovimentPerDay: Identifiable{
+    var day: Date
+    var moviment: [Moviment]
+    var valor: Float
+    var id: Date {day}
 }

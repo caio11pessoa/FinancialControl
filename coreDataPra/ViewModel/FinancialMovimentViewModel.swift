@@ -11,6 +11,10 @@ class FinancialMovimentViewModel: ObservableObject {
     
     var databaseManager: DataBaseManager
     
+    func fetch() {
+        moviments = databaseManager.fetchMoviments()
+    }
+    
     init() {
         databaseManager = .init()
         moviments = databaseManager.fetchMoviments()
@@ -49,13 +53,6 @@ class FinancialMovimentViewModel: ObservableObject {
             }
         }
         return currentValue
-    }
-    
-    struct MovimentPerDay: Identifiable{
-        var day: Date
-        var moviment: [Moviment]
-        var valor: Float
-        var id: Date {day}
     }
     
     var ganhosPorDia: [MovimentPerDay] {

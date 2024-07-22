@@ -54,7 +54,7 @@ struct Dashboard: View {
                     NavigationLink {
                         FinancialMovement(viewModel: viewModel)
                     } label: {
-                        DashBoardCard(text: "Estrato", image: "dollarsign.circle")
+                        DashBoardCard(text: "Extrato", image: "dollarsign.circle")
                     }
                     NavigationLink {
                         
@@ -80,6 +80,9 @@ struct Dashboard: View {
             Spacer()
         }
         .navigationTitle("Dashboard")
+        .onAppear(perform: {
+            viewModel.fetch()
+        })
     }
 }
 

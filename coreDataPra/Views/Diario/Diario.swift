@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Diario: View {
     @StateObject var viewModel: DiarioViewModel = DiarioViewModel()
+    @State var isPresented: Bool = false
     var body: some View {
         VStack(spacing: 0) {
             List {
@@ -35,7 +36,7 @@ struct Diario: View {
                     }
                 }
                 Button {
-                    
+                    isPresented = true
                 } label: {
                     HStack{
                         Spacer()
@@ -52,7 +53,14 @@ struct Diario: View {
                         Text("Sem gastos")
                     }
                     ForEach(viewModel.dailyMoviments){ movi in
-                        DiarioCell(date: movi.day, valor: (movi.valor == 0 ? movi.valor : -movi.valor).twoDecimalPlaces, color: viewModel.returnColor(val: movi.valor))
+                        NavigationLink {
+                            MovimentosPorPeriodo(movimentPerDay: movi, dateMark: movi.day.FormattedDayDate, date: movi.day) { newValue, tagSelected, newDate, newDescription, receita in
+                                viewModel.addMoviment(value: Float(newValue)!, date: newDate, receita: receita, tag: tagSelected, desc: newDescription)
+                            }
+                        } label: {
+                            DiarioCell(date: movi.day, valor: (movi.valor == 0 ? movi.valor : -movi.valor).twoDecimalPlaces, color: viewModel.returnColor(val: -movi.valor))
+                        }
+
                     }
                 }header: {
                     Text("Gastos")
@@ -60,6 +68,14 @@ struct Diario: View {
             }
         }
         .navigationTitle("Diário")
+        .sheet(isPresented: $isPresented, content: {
+            AddMoviment { newValue, tagSelected, newDate, newDescription, receita in
+                if let value = Float(newValue) {
+                    viewModel.addMoviment(value: value, date: newDate, receita: receita, tag: tagSelected, desc: newDescription)
+                    isPresented = false
+                }
+            }
+        })
     }
 }
 

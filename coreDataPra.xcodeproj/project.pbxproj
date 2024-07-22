@@ -14,6 +14,9 @@
 		343163772C48796600212F48 /* ListColabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163762C48796600212F48 /* ListColabCell.swift */; };
 		343163792C487E9900212F48 /* MovimentColabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163782C487E9900212F48 /* MovimentColabView.swift */; };
 		3431637C2C49D46100212F48 /* Diario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431637B2C49D46100212F48 /* Diario.swift */; };
+		3431637E2C4DB7F900212F48 /* AddMoviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431637D2C4DB7F900212F48 /* AddMoviment.swift */; };
+		343163822C4DD14300212F48 /* MovimentosPorPeriodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */; };
+		343163872C4DF5AE00212F48 /* MovimentColabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163862C4DF5AE00212F48 /* MovimentColabCell.swift */; };
 		3437E5112C3F17CE0055A88B /* coreDataPraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */; };
 		3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5122C3F17CE0055A88B /* ContentView.swift */; };
 		3437E5152C3F17CF0055A88B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3437E5142C3F17CF0055A88B /* Assets.xcassets */; };
@@ -43,6 +46,9 @@
 		343163762C48796600212F48 /* ListColabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColabCell.swift; sourceTree = "<group>"; };
 		343163782C487E9900212F48 /* MovimentColabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentColabView.swift; sourceTree = "<group>"; };
 		3431637B2C49D46100212F48 /* Diario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diario.swift; sourceTree = "<group>"; };
+		3431637D2C4DB7F900212F48 /* AddMoviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoviment.swift; sourceTree = "<group>"; };
+		343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentosPorPeriodo.swift; sourceTree = "<group>"; };
+		343163862C4DF5AE00212F48 /* MovimentColabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentColabCell.swift; sourceTree = "<group>"; };
 		3437E50D2C3F17CE0055A88B /* coreDataPra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coreDataPra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataPraApp.swift; sourceTree = "<group>"; };
 		3437E5122C3F17CE0055A88B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,39 @@
 			path = Diario;
 			sourceTree = "<group>";
 		};
+		3431637F2C4DCF0500212F48 /* AddMoviment */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */,
+				3431637D2C4DB7F900212F48 /* AddMoviment.swift */,
+			);
+			path = AddMoviment;
+			sourceTree = "<group>";
+		};
+		343163832C4DED4500212F48 /* Graficos */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5272C40443A0055A88B /* Graficos.swift */,
+			);
+			path = Graficos;
+			sourceTree = "<group>";
+		};
+		343163842C4DF11400212F48 /* Extrato */ = {
+			isa = PBXGroup;
+			children = (
+				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
+			);
+			path = Extrato;
+			sourceTree = "<group>";
+		};
+		343163852C4DF59D00212F48 /* MovimentColabCell */ = {
+			isa = PBXGroup;
+			children = (
+				343163862C4DF5AE00212F48 /* MovimentColabCell.swift */,
+			);
+			path = MovimentColabCell;
+			sourceTree = "<group>";
+		};
 		3437E5042C3F17CE0055A88B = {
 			isa = PBXGroup;
 			children = (
@@ -143,12 +182,13 @@
 		3437E5302C459CFD0055A88B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				343163852C4DF59D00212F48 /* MovimentColabCell */,
+				343163842C4DF11400212F48 /* Extrato */,
+				343163832C4DED4500212F48 /* Graficos */,
+				3431637F2C4DCF0500212F48 /* AddMoviment */,
 				3431637A2C49D44E00212F48 /* Diario */,
 				3437E5402C49798E0055A88B /* DashBoard */,
 				343163712C47351800212F48 /* Components */,
-				3437E5232C4028EB0055A88B /* FinancialMovement.swift */,
-				3437E5272C40443A0055A88B /* Graficos.swift */,
-				3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */,
 				343163742C47372600212F48 /* MovimentView.swift */,
 				343163782C487E9900212F48 /* MovimentColabView.swift */,
 			);
@@ -201,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				3437E5472C4ACB750055A88B /* DiarioCell.swift */,
+				343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -283,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3431637E2C4DB7F900212F48 /* AddMoviment.swift in Sources */,
 				343163502C46118700212F48 /* Bookworm.xcdatamodeld in Sources */,
 				3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */,
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
@@ -307,6 +349,8 @@
 				3437E5482C4ACB750055A88B /* DiarioCell.swift in Sources */,
 				3437E5422C49799A0055A88B /* Dashboard.swift in Sources */,
 				3437E5282C40443A0055A88B /* Graficos.swift in Sources */,
+				343163822C4DD14300212F48 /* MovimentosPorPeriodo.swift in Sources */,
+				343163872C4DF5AE00212F48 /* MovimentColabCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
