@@ -12,8 +12,8 @@
 		343163732C47353A00212F48 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163722C47353A00212F48 /* ListCell.swift */; };
 		343163752C47372600212F48 /* MovimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163742C47372600212F48 /* MovimentView.swift */; };
 		343163772C48796600212F48 /* ListColabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163762C48796600212F48 /* ListColabCell.swift */; };
-		343163792C487E9900212F48 /* MovimentColabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163782C487E9900212F48 /* MovimentColabView.swift */; };
-		3431637C2C49D46100212F48 /* Diario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431637B2C49D46100212F48 /* Diario.swift */; };
+		343163792C487E9900212F48 /* MovimentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163782C487E9900212F48 /* MovimentsListView.swift */; };
+		3431637C2C49D46100212F48 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431637B2C49D46100212F48 /* DiaryView.swift */; };
 		3431637E2C4DB7F900212F48 /* AddMoviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431637D2C4DB7F900212F48 /* AddMoviment.swift */; };
 		343163822C4DD14300212F48 /* MovimentosPorPeriodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */; };
 		343163872C4DF5AE00212F48 /* MovimentColabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343163862C4DF5AE00212F48 /* MovimentColabCell.swift */; };
@@ -21,21 +21,22 @@
 		3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5122C3F17CE0055A88B /* ContentView.swift */; };
 		3437E5152C3F17CF0055A88B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3437E5142C3F17CF0055A88B /* Assets.xcassets */; };
 		3437E5182C3F17CF0055A88B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3437E5172C3F17CF0055A88B /* Preview Assets.xcassets */; };
-		3437E5222C3F18CC0055A88B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5212C3F18CC0055A88B /* DataController.swift */; };
 		3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5232C4028EB0055A88B /* FinancialMovement.swift */; };
 		3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */; };
 		3437E5282C40443A0055A88B /* Graficos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5272C40443A0055A88B /* Graficos.swift */; };
-		3437E52A2C4575940055A88B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5292C4575940055A88B /* DataManager.swift */; };
-		3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */; };
-		3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */; };
 		3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5332C459DE40055A88B /* FloatModifiers.swift */; };
 		3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */; };
 		3437E53D2C4960E50055A88B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53C2C4960E50055A88B /* DatabaseManager.swift */; };
 		3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E53E2C49613E0055A88B /* DateExtension.swift */; };
 		3437E5422C49799A0055A88B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5412C49799A0055A88B /* Dashboard.swift */; };
 		3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5442C497A380055A88B /* DashBoardCard.swift */; };
-		3437E5482C4ACB750055A88B /* DiarioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5472C4ACB750055A88B /* DiarioCell.swift */; };
-		3437E54B2C4ACE220055A88B /* DiarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */; };
+		3437E5482C4ACB750055A88B /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E5472C4ACB750055A88B /* DiaryCell.swift */; };
+		3437E54B2C4ACE220055A88B /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437E54A2C4ACE220055A88B /* DiaryViewModel.swift */; };
+		345477992C4E9D97005F7F05 /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345477982C4E9D97005F7F05 /* AppStorageManager.swift */; };
+		3454779B2C4EBA1D005F7F05 /* MovimentPerDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3454779A2C4EBA1D005F7F05 /* MovimentPerDay.swift */; };
+		3454779D2C4EBAA2005F7F05 /* ViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3454779C2C4EBAA2005F7F05 /* ViewModelBase.swift */; };
+		345477AF2C4FF7FB005F7F05 /* ListRowBackgroundConditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345477AE2C4FF7FB005F7F05 /* ListRowBackgroundConditional.swift */; };
+		345477B42C501CAF005F7F05 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345477B32C501CAF005F7F05 /* PerfilView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +45,8 @@
 		343163722C47353A00212F48 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		343163742C47372600212F48 /* MovimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentView.swift; sourceTree = "<group>"; };
 		343163762C48796600212F48 /* ListColabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColabCell.swift; sourceTree = "<group>"; };
-		343163782C487E9900212F48 /* MovimentColabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentColabView.swift; sourceTree = "<group>"; };
-		3431637B2C49D46100212F48 /* Diario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diario.swift; sourceTree = "<group>"; };
+		343163782C487E9900212F48 /* MovimentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentsListView.swift; sourceTree = "<group>"; };
+		3431637B2C49D46100212F48 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		3431637D2C4DB7F900212F48 /* AddMoviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoviment.swift; sourceTree = "<group>"; };
 		343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentosPorPeriodo.swift; sourceTree = "<group>"; };
 		343163862C4DF5AE00212F48 /* MovimentColabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentColabCell.swift; sourceTree = "<group>"; };
@@ -54,21 +55,22 @@
 		3437E5122C3F17CE0055A88B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3437E5142C3F17CF0055A88B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3437E5172C3F17CF0055A88B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3437E5212C3F18CC0055A88B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3437E5232C4028EB0055A88B /* FinancialMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMovement.swift; sourceTree = "<group>"; };
 		3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMovimentViewModel.swift; sourceTree = "<group>"; };
 		3437E5272C40443A0055A88B /* Graficos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graficos.swift; sourceTree = "<group>"; };
-		3437E5292C4575940055A88B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBootcamp.swift; sourceTree = "<group>"; };
-		3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FruitsContainer.xcdatamodel; sourceTree = "<group>"; };
 		3437E5332C459DE40055A88B /* FloatModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatModifiers.swift; sourceTree = "<group>"; };
 		3437E5352C45A01A0055A88B /* AddMovimentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovimentSheet.swift; sourceTree = "<group>"; };
 		3437E53C2C4960E50055A88B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3437E53E2C49613E0055A88B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3437E5412C49799A0055A88B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		3437E5442C497A380055A88B /* DashBoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCard.swift; sourceTree = "<group>"; };
-		3437E5472C4ACB750055A88B /* DiarioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioCell.swift; sourceTree = "<group>"; };
-		3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioViewModel.swift; sourceTree = "<group>"; };
+		3437E5472C4ACB750055A88B /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
+		3437E54A2C4ACE220055A88B /* DiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewModel.swift; sourceTree = "<group>"; };
+		345477982C4E9D97005F7F05 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
+		3454779A2C4EBA1D005F7F05 /* MovimentPerDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentPerDay.swift; sourceTree = "<group>"; };
+		3454779C2C4EBAA2005F7F05 /* ViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBase.swift; sourceTree = "<group>"; };
+		345477AE2C4FF7FB005F7F05 /* ListRowBackgroundConditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowBackgroundConditional.swift; sourceTree = "<group>"; };
+		345477B32C501CAF005F7F05 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,7 @@
 			children = (
 				3437E5492C4ACE140055A88B /* ViewModel */,
 				3437E5462C4ACB5E0055A88B /* SubViews */,
-				3431637B2C49D46100212F48 /* Diario.swift */,
+				3431637B2C49D46100212F48 /* DiaryView.swift */,
 			);
 			path = Diario;
 			sourceTree = "<group>";
@@ -137,8 +139,6 @@
 		3437E5042C3F17CE0055A88B = {
 			isa = PBXGroup;
 			children = (
-				3437E5212C3F18CC0055A88B /* DataController.swift */,
-				3437E5292C4575940055A88B /* DataManager.swift */,
 				3437E50F2C3F17CE0055A88B /* coreDataPra */,
 				3437E50E2C3F17CE0055A88B /* Products */,
 			);
@@ -156,14 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				3437E53C2C4960E50055A88B /* DatabaseManager.swift */,
+				345477982C4E9D97005F7F05 /* AppStorageManager.swift */,
 				3437E5322C459D730055A88B /* Extensions and Modifiers */,
 				3437E5392C46F7310055A88B /* Model */,
 				3437E5302C459CFD0055A88B /* Views */,
 				3437E5312C459D0D0055A88B /* ViewModel */,
-				3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */,
 				3437E5102C3F17CE0055A88B /* coreDataPraApp.swift */,
 				3437E5122C3F17CE0055A88B /* ContentView.swift */,
-				3437E52B2C4578D50055A88B /* CoreDataBootcamp.swift */,
 				3431634E2C46118700212F48 /* Bookworm.xcdatamodeld */,
 				3437E5142C3F17CF0055A88B /* Assets.xcassets */,
 				3437E5162C3F17CF0055A88B /* Preview Content */,
@@ -182,6 +181,9 @@
 		3437E5302C459CFD0055A88B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				345477B22C501CA5005F7F05 /* Perfil */,
+				345477B12C5018E0005F7F05 /* MovimentsListView */,
+				345477B02C5018D0005F7F05 /* MovimentView */,
 				343163852C4DF59D00212F48 /* MovimentColabCell */,
 				343163842C4DF11400212F48 /* Extrato */,
 				343163832C4DED4500212F48 /* Graficos */,
@@ -189,8 +191,6 @@
 				3431637A2C49D44E00212F48 /* Diario */,
 				3437E5402C49798E0055A88B /* DashBoard */,
 				343163712C47351800212F48 /* Components */,
-				343163742C47372600212F48 /* MovimentView.swift */,
-				343163782C487E9900212F48 /* MovimentColabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3437E5252C403ABA0055A88B /* FinancialMovimentViewModel.swift */,
+				3454779C2C4EBAA2005F7F05 /* ViewModelBase.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,6 +209,7 @@
 			children = (
 				3437E5332C459DE40055A88B /* FloatModifiers.swift */,
 				3437E53E2C49613E0055A88B /* DateExtension.swift */,
+				345477AE2C4FF7FB005F7F05 /* ListRowBackgroundConditional.swift */,
 			);
 			path = "Extensions and Modifiers";
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				3431636F2C472D7C00212F48 /* TagEnum.swift */,
+				3454779A2C4EBA1D005F7F05 /* MovimentPerDay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 		3437E5462C4ACB5E0055A88B /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				3437E5472C4ACB750055A88B /* DiarioCell.swift */,
+				3437E5472C4ACB750055A88B /* DiaryCell.swift */,
 				343163812C4DD14300212F48 /* MovimentosPorPeriodo.swift */,
 			);
 			path = SubViews;
@@ -249,9 +252,33 @@
 		3437E5492C4ACE140055A88B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3437E54A2C4ACE220055A88B /* DiarioViewModel.swift */,
+				3437E54A2C4ACE220055A88B /* DiaryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		345477B02C5018D0005F7F05 /* MovimentView */ = {
+			isa = PBXGroup;
+			children = (
+				343163742C47372600212F48 /* MovimentView.swift */,
+			);
+			path = MovimentView;
+			sourceTree = "<group>";
+		};
+		345477B12C5018E0005F7F05 /* MovimentsListView */ = {
+			isa = PBXGroup;
+			children = (
+				343163782C487E9900212F48 /* MovimentsListView.swift */,
+			);
+			path = MovimentsListView;
+			sourceTree = "<group>";
+		};
+		345477B22C501CA5005F7F05 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				345477B32C501CAF005F7F05 /* PerfilView.swift */,
+			);
+			path = Perfil;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,24 +356,25 @@
 				3437E53F2C49613E0055A88B /* DateExtension.swift in Sources */,
 				3437E5242C4028EB0055A88B /* FinancialMovement.swift in Sources */,
 				3437E5132C3F17CE0055A88B /* ContentView.swift in Sources */,
-				3437E54B2C4ACE220055A88B /* DiarioViewModel.swift in Sources */,
+				3454779D2C4EBAA2005F7F05 /* ViewModelBase.swift in Sources */,
+				3437E54B2C4ACE220055A88B /* DiaryViewModel.swift in Sources */,
 				343163732C47353A00212F48 /* ListCell.swift in Sources */,
+				345477B42C501CAF005F7F05 /* PerfilView.swift in Sources */,
 				343163702C472D7C00212F48 /* TagEnum.swift in Sources */,
 				3437E5452C497A380055A88B /* DashBoardCard.swift in Sources */,
-				3437E52F2C457B100055A88B /* FruitsContainer.xcdatamodeld in Sources */,
 				3437E5262C403ABA0055A88B /* FinancialMovimentViewModel.swift in Sources */,
-				3431637C2C49D46100212F48 /* Diario.swift in Sources */,
+				3431637C2C49D46100212F48 /* DiaryView.swift in Sources */,
 				343163752C47372600212F48 /* MovimentView.swift in Sources */,
-				3437E5222C3F18CC0055A88B /* DataController.swift in Sources */,
-				3437E52A2C4575940055A88B /* DataManager.swift in Sources */,
-				343163792C487E9900212F48 /* MovimentColabView.swift in Sources */,
+				345477AF2C4FF7FB005F7F05 /* ListRowBackgroundConditional.swift in Sources */,
+				343163792C487E9900212F48 /* MovimentsListView.swift in Sources */,
 				343163772C48796600212F48 /* ListColabCell.swift in Sources */,
 				3437E5112C3F17CE0055A88B /* coreDataPraApp.swift in Sources */,
+				345477992C4E9D97005F7F05 /* AppStorageManager.swift in Sources */,
 				3437E53D2C4960E50055A88B /* DatabaseManager.swift in Sources */,
-				3437E52C2C4578D50055A88B /* CoreDataBootcamp.swift in Sources */,
 				3437E5342C459DE40055A88B /* FloatModifiers.swift in Sources */,
+				3454779B2C4EBA1D005F7F05 /* MovimentPerDay.swift in Sources */,
 				3437E5362C45A01A0055A88B /* AddMovimentSheet.swift in Sources */,
-				3437E5482C4ACB750055A88B /* DiarioCell.swift in Sources */,
+				3437E5482C4ACB750055A88B /* DiaryCell.swift in Sources */,
 				3437E5422C49799A0055A88B /* Dashboard.swift in Sources */,
 				3437E5282C40443A0055A88B /* Graficos.swift in Sources */,
 				343163822C4DD14300212F48 /* MovimentosPorPeriodo.swift in Sources */,
@@ -566,16 +594,6 @@
 			currentVersion = 3431634F2C46118700212F48 /* Bookworm.xcdatamodel */;
 			name = Bookworm.xcdatamodeld;
 			path = ../Bookworm.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		3437E52D2C457B100055A88B /* FruitsContainer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */,
-			);
-			currentVersion = 3437E52E2C457B100055A88B /* FruitsContainer.xcdatamodel */;
-			path = FruitsContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

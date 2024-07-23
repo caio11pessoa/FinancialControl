@@ -15,6 +15,7 @@ struct AddMoviment: View {
     @State var newDate: Date = .now
     @State var newDescription: String = ""
     @State private var selected: String = "Gasto"
+    @Binding var isPresented: Bool
     private let selectionOptions = [
         "Gasto",
         "Receita",
@@ -25,7 +26,8 @@ struct AddMoviment: View {
         _ tagSelected: TagEnum,
         _ newDate: Date,
         _ newDescription: String,
-        _ receita: Bool
+        _ receita: Bool,
+        _ isPresented: inout Bool
     ) -> ()
     var body: some View {
         ZStack {
@@ -67,7 +69,7 @@ struct AddMoviment: View {
                     HStack{
                         Spacer()
                         Button("Confirmar \(selected)") {
-                            callback(newValue, tagSelected, newDate, newDescription, receita)
+                            callback(newValue, tagSelected, newDate, newDescription, receita, &isPresented)
                         }
                         Spacer()
                     }
@@ -79,7 +81,7 @@ struct AddMoviment: View {
 }
 
 #Preview {
-    AddMoviment(callback: { newValue, tagSelected, newDate, newDescription, receita in
+    AddMoviment(isPresented: .constant(true), callback: { newValue, tagSelected, newDate, newDescription, receita, isPresented in
         
     })
 }

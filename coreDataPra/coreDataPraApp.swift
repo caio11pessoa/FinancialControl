@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct coreDataPraApp: App {
-    @StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
             NavigationStack {

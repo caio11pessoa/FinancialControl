@@ -13,6 +13,7 @@ enum TagEnum: String, CaseIterable {
     case none = "Outros"
     case lazer = "Lazer"
     case aluguel = "Aluguel"
+    case jogo = "Jogo"
     
     func tapTag(_ tap: String) -> TagEnum {
         

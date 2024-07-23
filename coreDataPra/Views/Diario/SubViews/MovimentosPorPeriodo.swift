@@ -12,13 +12,20 @@ struct MovimentosPorPeriodo: View {
     var dateMark: String
     var date: Date
     @State var isPresented: Bool = false
-    var callback: (_ newValue: String, _ tagSelected: TagEnum, _ newDate: Date, _ newDescription: String, _ receita: Bool) -> ()
+    var callback: (
+        _ newValue: String,
+        _ tagSelected: TagEnum,
+        _ newDate: Date,
+        _ newDescription: String,
+        _ receita: Bool,
+        _ isPresented: inout Bool
+    ) -> ()
     var body: some View {
         List {
             Button {
                 isPresented = true
             } label: {
-                HStack{
+                HStack {
                     Spacer()
                     Text("Nova Movimentação")
                     Spacer()
@@ -27,27 +34,10 @@ struct MovimentosPorPeriodo: View {
             Section {
                 ForEach(movimentPerDay.moviment){ movi in
                     MovimentColabCell(moviment: movi, color: movi.valor >= 0 ? .green : .red)
-//                    VStack(alignment: .leading) {
-//                        HStack{
-//                            Spacer()
-//                            Text("Gasto: \(movi.tag ?? "Outros")")
-//                            Spacer()
-//                        }
-//                        Spacer()
-//                        HStack{
-//                            Text("Valor:")
-//                            Text(movi.valor.twoDecimalPlaces)
-//                                .foregroundStyle(movi.valor < 0 ? .red : .green)
-//                        }
-//                        Spacer()
-//                        Text(movi.descricao ?? "Nenhuma descrição")
-//                        Spacer()
-//                    }
-//                    .frame(height: 200)
                 }
             } header: {
                 HStack{
-                    Text("Total: \(movimentPerDay.valor)")
+                    Text("Total: \(movimentPerDay.valor.twoDecimalPlaces)")
                         .font(.title3)
                     Spacer()
                     Text(dateMark)
@@ -56,14 +46,14 @@ struct MovimentosPorPeriodo: View {
         }
         .listRowSpacing(20)
         .sheet(isPresented: $isPresented, content: {
-            AddMoviment(newDate: date, callback: callback)
+            AddMoviment(newDate: date, isPresented: $isPresented, callback: callback)
         })
         
     }
 }
 
 #Preview {
-    MovimentosPorPeriodo(movimentPerDay: .init(day: .now, moviment: [], valor: 0), dateMark: "10/10", date: .now) { newValue, tagSelected, newDate, newDescription, receita in
+    MovimentosPorPeriodo(movimentPerDay: .init(day: .now, moviment: [], valor: 0), dateMark: "10/10", date: .now) { newValue, tagSelected, newDate, newDescription, receita, isPresented  in
         
     }
 }

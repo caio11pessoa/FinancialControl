@@ -73,7 +73,7 @@ struct AddMovimentSheet: View {
 
 #Preview {
     Text("text").sheet(isPresented: .constant(true)) {
-        AddMovimentSheet(viewModel: FinancialMovimentViewModel())
+        AddMovimentSheet(viewModel: FinancialMovimentViewModel(database: .init()))
     }
     
 }

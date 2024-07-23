@@ -39,5 +39,5 @@ struct ListCell: View {
 }
 
 #Preview {
-    ListCell(moviment: FinancialMovimentViewModel().moviments.first!)
+    ListCell(moviment: FinancialMovimentViewModel(database: .init()).moviments.first!)
 }

@@ -80,6 +80,6 @@ struct Graficos: View {
 
 #Preview {
     NavigationStack{
-        Graficos(viewModel: FinancialMovimentViewModel())
+        Graficos(viewModel: FinancialMovimentViewModel(database: .init()))
     }
 }

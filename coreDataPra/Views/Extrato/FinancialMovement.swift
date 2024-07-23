@@ -91,7 +91,7 @@ struct FinancialMovement: View {
             Section {
                 ForEach(viewModel.ganhosPorDia){ moviPerDay in
                     NavigationLink {
-                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
+                        MovimentsListView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
                                 .day(.twoDigits)
                                 .month(.twoDigits)
@@ -125,7 +125,7 @@ struct FinancialMovement: View {
             Section {
                 ForEach(viewModel.ganhosPorMes){ moviPerDay in
                     NavigationLink {
-                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
+                        MovimentsListView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
                                 .month(.wide)
                         ))
@@ -160,7 +160,7 @@ struct FinancialMovement: View {
             Section {
                 ForEach(viewModel.gastosPorDia){ moviPerDay in
                     NavigationLink {
-                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
+                        MovimentsListView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
                                 .day(.twoDigits)
                                 .month(.twoDigits)
@@ -197,7 +197,7 @@ struct FinancialMovement: View {
             Section {
                 ForEach(viewModel.gastosPorMes){ moviPerDay in
                     NavigationLink {
-                        MovimentColabView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
+                        MovimentsListView(movimentPerDay: moviPerDay, dateMark: moviPerDay.day.formatted(
                             .dateTime
                                 .month(.wide)
                         ))
@@ -247,7 +247,7 @@ struct FinancialMovement: View {
 
 #Preview {
     NavigationStack{
-        FinancialMovement(viewModel: FinancialMovimentViewModel())
+        FinancialMovement(viewModel: FinancialMovimentViewModel(database: .init()))
     }
 }
 

@@ -60,5 +60,5 @@ struct MovimentView: View {
 }
 
 #Preview {
-    MovimentView(moviment: FinancialMovimentViewModel().moviments.first!)
+    MovimentView(moviment: FinancialMovimentViewModel(database: .init()).moviments.first!)
 }

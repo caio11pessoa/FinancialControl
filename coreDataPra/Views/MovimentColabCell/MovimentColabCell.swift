@@ -11,9 +11,9 @@ struct MovimentColabCell: View {
     var moviment: Moviment
     var color: Color
     var body: some View {
-        VStack{
+        VStack {
             HStack{
-                Text(moviment.date!.FormattedDayDate)
+                Text(moviment.date?.FormattedDayDate ?? "")
                 Spacer()
                 Text(moviment.tag ?? "Outros")
                     .multilineTextAlignment(.leading)
@@ -33,5 +33,5 @@ struct MovimentColabCell: View {
 }
 
 #Preview {
-    MovimentColabCell(moviment: FinancialMovimentViewModel().moviments.first!,  color: .green)
+    MovimentColabCell(moviment: FinancialMovimentViewModel(database: .init()).moviments.first!,  color: .green)
 }

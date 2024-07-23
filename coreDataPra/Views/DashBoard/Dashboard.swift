@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Dashboard: View {
-    @StateObject var viewModel: FinancialMovimentViewModel = FinancialMovimentViewModel()
+    @StateObject var viewModel: FinancialMovimentViewModel = FinancialMovimentViewModel(database: .init())
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -41,13 +41,13 @@ struct Dashboard: View {
                     GridItem(.flexible()),
                 ], spacing: 20) {
                     NavigationLink {
-                        Diario()
+                        DiaryView()
                     } label: {
                         DashBoardCard(text: "Diário",
                                       image: "list.clipboard")
                     }
                     NavigationLink {
-                        Graficos(viewModel: FinancialMovimentViewModel())
+                        Graficos(viewModel: FinancialMovimentViewModel(database: .init()))
                     } label: {
                         DashBoardCard(text: "Gráfico", image: "chart.bar.fill")
                     }
@@ -62,7 +62,7 @@ struct Dashboard: View {
                         DashBoardCard(text: "Críticos", image: "hazardsign.fill")
                     }
                     NavigationLink {
-                        
+                        PerfilView()
                     } label: {
                         DashBoardCard(text: "Perfil",
                                       image: "person.crop.circle")

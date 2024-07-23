@@ -10,7 +10,6 @@ import CoreData
 
 class DataBaseManager {
     let container: NSPersistentContainer
-    
 
     init() {
         container = NSPersistentContainer(name: "Bookworm")

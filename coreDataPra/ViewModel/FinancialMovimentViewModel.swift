@@ -7,19 +7,8 @@
 
 import SwiftUI
 
-class FinancialMovimentViewModel: ObservableObject {
+class FinancialMovimentViewModel: ViewModelBase, ObservableObject {
     
-    var databaseManager: DataBaseManager
-    
-    func fetch() {
-        moviments = databaseManager.fetchMoviments()
-    }
-    
-    init() {
-        databaseManager = .init()
-        moviments = databaseManager.fetchMoviments()
-    }
-    @Published var moviments: [Moviment] = []
     @Published var isShowingSheet: Bool = false
     @Published var sorted: Bool = false
     @Published var newValue: String = ""
@@ -163,29 +152,4 @@ class FinancialMovimentViewModel: ObservableObject {
         }
     }
     
-    func addMoviment(value: Float, date: Date, receita: Bool, tag: TagEnum, desc: String) {
-        if value != 0 {
-            databaseManager.addMoviment(value: value, date: date, receita: receita, tag: tag, desc: desc)
-            saveData()
-        }
-    }
-    
-    //    func updateFruit(entity: FruitEntity) {
-    //        let currentName = entity.name ?? ""
-    //        let newName = currentName + "!"
-    //        entity.name = newName
-    //        saveData()
-    //    }
-
-    func deleteMoviment(indexSet: IndexSet){
-        guard let index = indexSet.first else {return}
-        let entity = sorted ? movimentsSorted[index] : moviments[index]
-        databaseManager.deleteMoviment(entity)
-        saveData()
-    }
-    
-    func saveData() {
-        databaseManager.saveData()
-        moviments = databaseManager.fetchMoviments()
-    }
 }
